@@ -1735,15 +1735,30 @@ img {
     padding-bottom: 0;
   }
 
-  /* Compare table */
+  /* Compare table - tối ưu shadow, cuộn ngang mượt */
   .compare-table-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    width: 100%;
-    margin-top: 2rem;
+    padding: 0 8px 12px 8px;
+    margin: 0 -8px;
+    width: calc(100% + 16px);
   }
   .compare-table {
     min-width: 520px;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  .compare-medusa-col,
+  .compare-header-medusa {
+    box-shadow: none !important;
+  }
+  .compare-medusa-col {
+    border-left: 2px solid #B89235;
+    border-right: 2px solid #B89235;
+  }
+  .compare-header-medusa {
+    border-left: 2px solid #B89235;
+    border-right: 2px solid #B89235;
   }
 
   .formula-grid {
@@ -1790,16 +1805,57 @@ img {
     padding: 2rem 1.5rem;
   }
 
-  /* ----------------------------------------------------
-     ẨN HOÀN TOÀN 2 PHẦN CUỐI TRÊN ĐIỆN THOẠI THEO YÊU CẦU
-     (Chỉ hiển thị trên máy tính, điện thoại không cần thiết)
-     ---------------------------------------------------- */
+  /* Hiển thị lại calculator với layout 1 cột */
   .calculator-box {
-    display: none !important;
+    display: grid !important;
+    grid-template-columns: 1fr;
+    padding: 1.75rem 1.25rem;
+    gap: 1.75rem;
+  }
+  .calc-inputs {
+    gap: 1.5rem;
+  }
+  .slider-val-display {
+    font-size: 1.1rem;
+  }
+  .calc-total-amount {
+    font-size: 2.1rem;
+  }
+  .calc-output-card {
+    padding: 1.75rem 1.25rem;
+  }
+  .calc-tiers {
+    flex-wrap: wrap;
+  }
+  .tier-badge {
+    font-size: 0.68rem;
+    padding: 0.35rem 0.6rem;
   }
 
+  /* Hiển thị lại form đăng ký */
   .signup-section {
-    display: none !important;
+    display: block !important;
+  }
+  .signup-wrap {
+    grid-template-columns: 1fr;
+  }
+  .signup-content,
+  .signup-form-container {
+    padding: 1.75rem 1.25rem;
+  }
+  .signup-content {
+    border-right: none;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .brief-summary-box {
+    padding: 1.25rem;
+  }
+  .brief-summary-box pre {
+    font-size: 0.75rem;
   }
 
   /* Mobile Sticky Bar */
@@ -1817,6 +1873,6 @@ img {
   }
 
   body {
-    padding-bottom: 85px;
+    padding-bottom: 100px; /* Tăng lên để không che form */
   }
 }
