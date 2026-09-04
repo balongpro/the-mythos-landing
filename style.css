@@ -1875,4 +1875,17 @@ img {
   body {
     padding-bottom: 100px; /* Tăng lên để không che form */
   }
+   /* ==========================================================================
+   KHẮC PHỤC TRIỆT ĐỂ: ĐẢM BẢO 2 SECTION CUỐI LUÔN HIỂN THỊ TRÊN MOBILE
+   (Ghi đè mọi lệnh display:none trước đó)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .calculator-box,
+  .signup-section {
+    display: block !important;   /* Dành cho section signup */
+  }
+
+  .calculator-box {
+    display: grid !important;    /* Riêng calculator phải là grid */
+  }
 }
