@@ -76,7 +76,7 @@ function initCalculator() {
   const tierBadges = document.querySelectorAll('.tier-badge');
 
   // Product price assumptions (VND)
-  const PRODUCT_PRICE = 280000;
+  const PRODUCT_PRICE = 180000;
 
   function calculate() {
     if (!ordersRange) return;
