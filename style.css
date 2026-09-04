@@ -1636,452 +1636,103 @@ img {
 }
 
 /* ==========================================================================
-   RESPONSIVE MEDIA QUERIES
+   RESPONSIVE MASTER — block @media DUY NHẤT của file
    ========================================================================== */
 @media (max-width: 1080px) {
-  .nav-links {
-    gap: 1rem;
-  }
-  .nav-link {
-    font-size: 0.76rem;
-  }
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  .hero-visual-wrap {
-    max-width: 540px;
-    margin: 0 auto;
-  }
-  .proof-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem 1.5rem;
-  }
-  .proof-item:nth-child(2) {
-    border-right: none;
-  }
-  .product-showcase-grid {
-    grid-template-columns: 1fr;
-  }
-  .formula-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .angle-panel.active {
-    grid-template-columns: 1fr;
-  }
-  .angle-panel-media {
-    height: 300px;
-  }
-  .calculator-box {
-    grid-template-columns: 1fr;
-    padding: 2.5rem;
-  }
-  .signup-wrap {
-    grid-template-columns: 1fr;
-  }
-  .signup-content, .signup-form-container {
-    padding: 2.5rem;
-  }
+  .nav-links { gap: 1rem; }
+  .nav-link { font-size: .76rem; }
+  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-visual-wrap { max-width: 540px; margin: 0 auto; }
+  .proof-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 1.5rem; }
+  .proof-item:nth-child(2) { border-right: none; }
+  .product-showcase-grid { grid-template-columns: 1fr; }
+  .formula-grid { grid-template-columns: repeat(2, 1fr); }
+  .angle-panel.active { grid-template-columns: 1fr; }
+  .angle-panel-media { height: 300px; }
+  .calculator-box { grid-template-columns: minmax(0, 1fr); padding: 2.5rem; }
+  .signup-wrap { grid-template-columns: minmax(0, 1fr); }
+  .signup-content, .signup-form-container { padding: 2.5rem; min-width: 0; }
+  .signup-content { border-right: none; border-bottom: 1px solid var(--border-strong); }
 }
 
 @media (max-width: 900px) {
-  .nav-links, .nav-actions .btn {
-    display: none;
-  }
-  .nav-toggle {
-    display: block;
-  }
-  .compare-feature-cell {
-    font-size: 0.88rem;
-    padding: 1.1rem 0.5rem 1.1rem 0;
-  }
-  .compare-feature-cell strong {
-    font-size: 0.9rem;
-  }
-  .compare-header-medusa {
-    font-size: 1.1rem;
-    padding: 1.2rem 0.5rem;
-  }
-  .compare-header-others {
-    font-size: 0.95rem;
-  }
+  .nav-links, .nav-actions .btn { display: none; }
+  .nav-toggle { display: block; }
 }
 
-/* ==========================================================================
-   RESPONSIVE FIXES - MOBILE FIRST (≤ 768px)
-   ========================================================================== */
 @media (max-width: 768px) {
-  html, body {
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
+  html, body { max-width: 100vw; overflow-x: hidden; }
+  .container { padding: 0 1.15rem; }
+  .section-spacing { padding: 3.5rem 0; }
 
-  .container {
-    padding: 0 1.15rem;
-  }
+  /* Proof */
+  .proof-grid { grid-template-columns: 1fr; }
+  .proof-item { border-right: none; border-bottom: 1px solid var(--border-strong); padding: 0 0 1.5rem 0; }
+  .proof-item:last-child { border-bottom: none; padding-bottom: 0; }
 
-  .section-spacing {
-    padding: 3.5rem 0;
-  }
+  /* Formula + Motto */
+  .formula-grid { grid-template-columns: 1fr; }
+  .core-motto-box { flex-direction: column; padding: 1.75rem 1.25rem; text-align: center; gap: 1.5rem; }
+  .motto-text-wrap h3 { font-size: clamp(1.15rem, 4.6vw, 1.7rem); }
 
-  /* Proof grid - Single column on mobile */
-  .proof-grid {
-    grid-template-columns: 1fr;
-  }
-  .proof-item {
-    border-right: none;
-    border-bottom: 1px solid var(--border-strong);
-    padding: 0 0 1.5rem 0;
-  }
-  .proof-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
+  /* Compare → card dọc, hết scroll ngang */
+  .compare-section { padding: 3.5rem 0; }
+  .compare-table-wrap { margin-top: 1.5rem; overflow: visible; }
+  .compare-table { min-width: 0; width: 100%; }
+  .compare-table thead { display: none; }
+  .compare-table, .compare-table tbody, .compare-table tr, .compare-table td { display: block; width: 100%; }
+  .compare-row, .compare-row:last-child { border: 1px solid #2A2826; border-left: 3px solid var(--gold-accent); margin-bottom: 1rem; padding: 1.15rem; }
+  .compare-feature-cell { width: 100%; padding: 0 0 .85rem 0; margin-bottom: .85rem; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .compare-feature-cell strong { font-size: .95rem; }
+  .compare-feature-cell span { font-size: .78rem; }
+  .compare-medusa-col, .compare-others-col { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: .55rem 0; background: transparent; box-shadow: none; }
+  .compare-medusa-col::before { content: 'MEDUSA'; color: var(--gold-accent); font-weight: 800; font-size: .76rem; letter-spacing: .1em; }
+  .compare-others-col::before { content: 'SÁP KHÁC'; color: #8C867D; font-weight: 700; font-size: .76rem; letter-spacing: .1em; }
+  .compare-check-icon { color: var(--gold-accent); }
+  .compare-cross-icon { color: #55514B; }
 
-  /* ==========================================================================
-     FIX 1: COMPARISON TABLE → MOBILE CARD LAYOUT
-     Convert each row into a standalone card (no horizontal scroll)
-     ========================================================================== */
-  .compare-section {
-    padding: 3.5rem 0;
-  }
+  /* Angles / Guidelines / Testimonials / Benefits */
+  .angle-panel-body { padding: 1.75rem 1.25rem; }
+  .angle-contrast-box { grid-template-columns: 1fr; gap: 1rem; }
+  .angle-panel-media { height: 220px; }
+  .guideline-grid { grid-template-columns: 1fr; }
+  .guideline-card { padding: 1.75rem 1.25rem; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .testi-card { padding: 1.75rem 1.25rem; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .benefit-card { padding: 2rem 1.5rem; }
 
-  .compare-section .section-header {
-    margin-bottom: 2rem;
-  }
+  /* CALCULATOR — hiển thị, khoá tràn bằng minmax(0,1fr) + min-width:0 */
+  .calculator-box { display: grid; grid-template-columns: minmax(0, 1fr); padding: 1.75rem 1.25rem; gap: 2rem; }
+  .calc-inputs { gap: 1.5rem; min-width: 0; }
+  .calc-inputs > * { min-width: 0; max-width: 100%; }
+  .calc-inputs h3 { font-size: 1.35rem; }
+  .custom-range { width: 100%; height: 8px; }
+  .calc-tiers { flex-wrap: wrap; gap: .4rem; }
+  .calc-output-card { padding: 1.75rem 1.25rem; min-width: 0; }
+  .calc-total-amount { font-size: 2.1rem; word-break: break-word; }
+  .calc-breakdown { word-break: break-word; }
 
-  .compare-table-wrap {
-    width: 100%;
-    margin-top: 1.5rem;
-    overflow-x: visible;
-  }
+  /* SIGNUP — hiển thị, khoá tràn */
+  .signup-section { display: block; }
+  .signup-wrap { grid-template-columns: minmax(0, 1fr); }
+  .signup-content, .signup-form-container { padding: 1.75rem 1.25rem; min-width: 0; }
+  .brief-summary-box { padding: 1rem; margin: 1.25rem 0; max-width: 100%; }
+  .brief-summary-box pre { font-size: .72rem; white-space: pre-wrap; word-break: break-word; overflow-wrap: anywhere; }
+  .form-row-2 { grid-template-columns: minmax(0, 1fr); }
+  .form-input, .form-select, .form-textarea { font-size: 16px; min-width: 0; width: 100%; }
 
-  /* Reset table to block layout */
-  .compare-table,
-  .compare-table thead,
-  .compare-table tbody,
-  .compare-table tr,
-  .compare-table th,
-  .compare-table td {
-    display: block;
-    width: 100%;
-  }
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 2.25rem; }
+  .footer-bottom { flex-direction: column; gap: .5rem; text-align: center; }
 
-  .compare-table thead {
-    display: none; /* Hide headers, use card labels instead */
-  }
-
-  .compare-row {
-    background: var(--bg-dark-surface);
-    border: 1px solid var(--border-dark);
-    border-left: 3px solid var(--gold-accent);
-    margin-bottom: 1rem;
-    padding: 1.25rem 1.15rem;
-    border-bottom: 1px solid var(--border-dark);
-  }
-
-  .compare-row:last-child {
-    margin-bottom: 0;
-  }
-
-  .compare-feature-cell {
-    width: 100%;
-    padding: 0 0 0.85rem 0;
-    margin-bottom: 0.85rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .compare-feature-cell strong {
-    font-size: 0.95rem;
-  }
-
-  .compare-feature-cell span {
-    font-size: 0.78rem;
-  }
-
-  /* Medusa & Others columns: side-by-side with labels */
-  .compare-medusa-col,
-  .compare-others-col {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.6rem 0;
-    background: transparent;
-    box-shadow: none;
-  }
-
-  .compare-medusa-col::before {
-    content: 'MEDUSA';
-    font-weight: 800;
-    font-size: 0.76rem;
-    letter-spacing: 0.1em;
-    color: var(--gold-accent);
-  }
-
-  .compare-others-col::before {
-    content: 'SÁP KHÁC';
-    font-weight: 700;
-    font-size: 0.76rem;
-    letter-spacing: 0.1em;
-    color: #8C867D;
-  }
-
-  .compare-check-icon,
-  .compare-cross-icon {
-    font-size: 1.25rem;
-    font-weight: 900;
-  }
-
-  .compare-check-icon {
-    color: var(--gold-accent);
-  }
-
-  .compare-cross-icon {
-    color: #55514B;
-  }
-
-  /* ==========================================================================
-     FIX 2: CORE MOTTO BOX - Typography responsive
-     ========================================================================== */
-  .core-motto-box {
-    flex-direction: column;
-    padding: 1.75rem 1.25rem;
-    text-align: center;
-    gap: 1.5rem;
-  }
-
-  .motto-text-wrap h3 {
-    font-size: clamp(1.15rem, 4.5vw, 1.7rem);
-    line-height: 1.3;
-  }
-
-  .motto-text-wrap p {
-    font-size: 0.88rem;
-  }
-
-  /* ==========================================================================
-     FIX 3: CONTENT ANGLES - Mobile layout
-     ========================================================================== */
-  .angle-nav {
-    gap: 0.4rem;
-  }
-
-  .angle-tab-btn {
-    padding: 0.65rem 0.85rem;
-    font-size: 0.74rem;
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .angle-panel.active {
-    grid-template-columns: 1fr;
-  }
-
-  .angle-panel-body {
-    padding: 1.5rem 1.15rem;
-  }
-
-  .angle-contrast-box {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-
-  .angle-panel-media {
-    height: 220px;
-  }
-
-  /* ==========================================================================
-     FIX 4: GUIDELINES (DO'S & DON'TS)
-     ========================================================================== */
-  .guideline-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .guideline-card {
-    padding: 1.5rem 1.15rem;
-  }
-
-  /* ==========================================================================
-     FIX 5: TESTIMONIALS
-     ========================================================================== */
-  .testi-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .testi-card {
-    padding: 1.5rem 1.15rem;
-  }
-
-  /* ==========================================================================
-     FIX 6: BENEFITS
-     ========================================================================== */
-  .benefits-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .benefit-card {
-    padding: 1.75rem 1.25rem;
-  }
-
-  /* ==========================================================================
-     FIX 7: CALCULATOR - Show on Mobile, Single Column
-     ========================================================================== */
-  .calculator-box {
-    display: grid !important; /* Override display: none */
-    grid-template-columns: 1fr;
-    padding: 1.75rem 1.25rem;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .calc-inputs {
-    gap: 1.5rem;
-  }
-
-  .calc-inputs h3 {
-    font-size: 1.35rem;
-  }
-
-  .slider-group label {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .slider-val-display {
-    font-size: 1.2rem;
-  }
-
-  .custom-range {
-    height: 8px;
-    margin: 0.5rem 0 1rem 0;
-  }
-
-  .custom-range::-webkit-slider-thumb {
-    width: 28px;
-    height: 28px;
-  }
-
-  .calc-tiers {
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
-  .tier-badge {
-    padding: 0.35rem 0.65rem;
-    font-size: 0.68rem;
-  }
-
-  .calc-output-card {
-    padding: 1.75rem 1.25rem;
-  }
-
-  .calc-total-amount {
-    font-size: 2.2rem;
-  }
-
-  /* ==========================================================================
-     FIX 8: SIGNUP FORM - Show on Mobile, Single Column
-     ========================================================================== */
-  .signup-section {
-    display: block !important; /* Override display: none */
-  }
-
-  .signup-wrap {
-    grid-template-columns: 1fr;
-  }
-
-  .signup-content,
-  .signup-form-container {
-    padding: 1.75rem 1.25rem;
-  }
-
-  .signup-content {
-    border-right: none;
-    border-bottom: 1px solid var(--border-strong);
-  }
-
-  .brief-summary-box {
-    padding: 1rem;
-    margin: 1.25rem 0;
-  }
-
-  .brief-summary-box pre {
-    font-size: 0.75rem;
-    line-height: 1.5;
-  }
-
-  .form-row-2 {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .form-input,
-  .form-select,
-  .form-textarea {
-    padding: 0.95rem 1rem;
-    font-size: 16px; /* Prevent iOS zoom */
-  }
-
-  /* ==========================================================================
-     FIX 9: MOBILE STICKY BAR & FOOTER
-     ========================================================================== */
-  .mobile-sticky-bar {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(250, 248, 245, 0.98);
-    border-top: 1px solid var(--border-strong);
-    padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
-    z-index: 999;
-    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
-  }
-
-  body {
-    padding-bottom: 85px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: 0.75rem;
-    text-align: center;
-  }
+  /* Sticky bar */
+  .mobile-sticky-bar { display: flex; padding: .65rem 1rem calc(.65rem + env(safe-area-inset-bottom, 0px)); }
+  body { padding-bottom: 85px; }
 }
 
-/* ==========================================================================
-   EXTRA SMALL DEVICES (≤ 360px)
-   ========================================================================== */
-@media (max-width: 360px) {
-  h1 {
-    font-size: 1.85rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  .hero-headline {
-    font-size: 1.75rem;
-  }
-
-  .compare-row {
-    padding: 1rem 0.85rem;
-  }
-
-  .compare-feature-cell strong {
-    font-size: 0.88rem;
-  }
-
-  .calc-total-amount {
-    font-size: 1.85rem;
-  }
+@media (max-width: 400px) {
+  .hero-headline { font-size: 1.8rem; }
+  .calc-total-amount { font-size: 1.8rem; }
+  .brief-summary-box pre { font-size: .68rem; }
 }
