@@ -1707,6 +1707,9 @@ img {
   }
 }
 
+/* ==========================================================================
+   RESPONSIVE FIXES - MOBILE FIRST (≤ 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
   html, body {
     max-width: 100vw;
@@ -1721,7 +1724,7 @@ img {
     padding: 3.5rem 0;
   }
 
-  /* Proof grid */
+  /* Proof grid - Single column on mobile */
   .proof-grid {
     grid-template-columns: 1fr;
   }
@@ -1735,36 +1738,112 @@ img {
     padding-bottom: 0;
   }
 
-  /* Compare table - tối ưu shadow, cuộn ngang mượt */
+  /* ==========================================================================
+     FIX 1: COMPARISON TABLE → MOBILE CARD LAYOUT
+     Convert each row into a standalone card (no horizontal scroll)
+     ========================================================================== */
+  .compare-section {
+    padding: 3.5rem 0;
+  }
+
+  .compare-section .section-header {
+    margin-bottom: 2rem;
+  }
+
   .compare-table-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 0 8px 12px 8px;
-    margin: 0 -8px;
-    width: calc(100% + 16px);
+    width: 100%;
+    margin-top: 1.5rem;
+    overflow-x: visible;
   }
-  .compare-table {
-    min-width: 520px;
-    border-collapse: separate;
-    border-spacing: 0;
+
+  /* Reset table to block layout */
+  .compare-table,
+  .compare-table thead,
+  .compare-table tbody,
+  .compare-table tr,
+  .compare-table th,
+  .compare-table td {
+    display: block;
+    width: 100%;
   }
+
+  .compare-table thead {
+    display: none; /* Hide headers, use card labels instead */
+  }
+
+  .compare-row {
+    background: var(--bg-dark-surface);
+    border: 1px solid var(--border-dark);
+    border-left: 3px solid var(--gold-accent);
+    margin-bottom: 1rem;
+    padding: 1.25rem 1.15rem;
+    border-bottom: 1px solid var(--border-dark);
+  }
+
+  .compare-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .compare-feature-cell {
+    width: 100%;
+    padding: 0 0 0.85rem 0;
+    margin-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .compare-feature-cell strong {
+    font-size: 0.95rem;
+  }
+
+  .compare-feature-cell span {
+    font-size: 0.78rem;
+  }
+
+  /* Medusa & Others columns: side-by-side with labels */
   .compare-medusa-col,
-  .compare-header-medusa {
-    box-shadow: none !important;
-  }
-  .compare-medusa-col {
-    border-left: 2px solid #B89235;
-    border-right: 2px solid #B89235;
-  }
-  .compare-header-medusa {
-    border-left: 2px solid #B89235;
-    border-right: 2px solid #B89235;
+  .compare-others-col {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    background: transparent;
+    box-shadow: none;
   }
 
-  .formula-grid {
-    grid-template-columns: 1fr;
+  .compare-medusa-col::before {
+    content: 'MEDUSA';
+    font-weight: 800;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-accent);
   }
 
+  .compare-others-col::before {
+    content: 'SÁP KHÁC';
+    font-weight: 700;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    color: #8C867D;
+  }
+
+  .compare-check-icon,
+  .compare-cross-icon {
+    font-size: 1.25rem;
+    font-weight: 900;
+  }
+
+  .compare-check-icon {
+    color: var(--gold-accent);
+  }
+
+  .compare-cross-icon {
+    color: #55514B;
+  }
+
+  /* ==========================================================================
+     FIX 2: CORE MOTTO BOX - Typography responsive
+     ========================================================================== */
   .core-motto-box {
     flex-direction: column;
     padding: 1.75rem 1.25rem;
@@ -1772,93 +1851,183 @@ img {
     gap: 1.5rem;
   }
 
+  .motto-text-wrap h3 {
+    font-size: clamp(1.15rem, 4.5vw, 1.7rem);
+    line-height: 1.3;
+  }
+
+  .motto-text-wrap p {
+    font-size: 0.88rem;
+  }
+
+  /* ==========================================================================
+     FIX 3: CONTENT ANGLES - Mobile layout
+     ========================================================================== */
+  .angle-nav {
+    gap: 0.4rem;
+  }
+
+  .angle-tab-btn {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.74rem;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .angle-panel.active {
+    grid-template-columns: 1fr;
+  }
+
   .angle-panel-body {
-    padding: 1.75rem 1.25rem;
+    padding: 1.5rem 1.15rem;
   }
 
   .angle-contrast-box {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
+  .angle-panel-media {
+    height: 220px;
+  }
+
+  /* ==========================================================================
+     FIX 4: GUIDELINES (DO'S & DON'TS)
+     ========================================================================== */
   .guideline-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .guideline-card {
-    padding: 1.75rem 1.25rem;
+    padding: 1.5rem 1.15rem;
   }
 
+  /* ==========================================================================
+     FIX 5: TESTIMONIALS
+     ========================================================================== */
   .testi-grid {
     grid-template-columns: 1fr;
   }
 
   .testi-card {
-    padding: 1.75rem 1.25rem;
+    padding: 1.5rem 1.15rem;
   }
 
+  /* ==========================================================================
+     FIX 6: BENEFITS
+     ========================================================================== */
   .benefits-grid {
     grid-template-columns: 1fr;
   }
 
   .benefit-card {
-    padding: 2rem 1.5rem;
+    padding: 1.75rem 1.25rem;
   }
 
-  /* Hiển thị lại calculator với layout 1 cột */
+  /* ==========================================================================
+     FIX 7: CALCULATOR - Show on Mobile, Single Column
+     ========================================================================== */
   .calculator-box {
-    display: grid !important;
+    display: grid !important; /* Override display: none */
     grid-template-columns: 1fr;
     padding: 1.75rem 1.25rem;
-    gap: 1.75rem;
+    gap: 2rem;
+    margin-top: 2rem;
   }
+
   .calc-inputs {
     gap: 1.5rem;
   }
+
+  .calc-inputs h3 {
+    font-size: 1.35rem;
+  }
+
+  .slider-group label {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
   .slider-val-display {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
-  .calc-total-amount {
-    font-size: 2.1rem;
+
+  .custom-range {
+    height: 8px;
+    margin: 0.5rem 0 1rem 0;
   }
+
+  .custom-range::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+  }
+
+  .calc-tiers {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tier-badge {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.68rem;
+  }
+
   .calc-output-card {
     padding: 1.75rem 1.25rem;
   }
-  .calc-tiers {
-    flex-wrap: wrap;
-  }
-  .tier-badge {
-    font-size: 0.68rem;
-    padding: 0.35rem 0.6rem;
+
+  .calc-total-amount {
+    font-size: 2.2rem;
   }
 
-  /* Hiển thị lại form đăng ký */
+  /* ==========================================================================
+     FIX 8: SIGNUP FORM - Show on Mobile, Single Column
+     ========================================================================== */
   .signup-section {
-    display: block !important;
+    display: block !important; /* Override display: none */
   }
+
   .signup-wrap {
     grid-template-columns: 1fr;
   }
+
   .signup-content,
   .signup-form-container {
     padding: 1.75rem 1.25rem;
   }
+
   .signup-content {
     border-right: none;
     border-bottom: 1px solid var(--border-strong);
   }
+
+  .brief-summary-box {
+    padding: 1rem;
+    margin: 1.25rem 0;
+  }
+
+  .brief-summary-box pre {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
   .form-row-2 {
     grid-template-columns: 1fr;
     gap: 0;
   }
-  .brief-summary-box {
-    padding: 1.25rem;
-  }
-  .brief-summary-box pre {
-    font-size: 0.75rem;
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 0.95rem 1rem;
+    font-size: 16px; /* Prevent iOS zoom */
   }
 
-  /* Mobile Sticky Bar */
+  /* ==========================================================================
+     FIX 9: MOBILE STICKY BAR & FOOTER
+     ========================================================================== */
   .mobile-sticky-bar {
     display: flex;
     position: fixed;
@@ -1873,6 +2042,46 @@ img {
   }
 
   body {
-    padding-bottom: 100px; /* Tăng lên để không che form */
+    padding-bottom: 85px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   EXTRA SMALL DEVICES (≤ 360px)
+   ========================================================================== */
+@media (max-width: 360px) {
+  h1 {
+    font-size: 1.85rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-headline {
+    font-size: 1.75rem;
+  }
+
+  .compare-row {
+    padding: 1rem 0.85rem;
+  }
+
+  .compare-feature-cell strong {
+    font-size: 0.88rem;
+  }
+
+  .calc-total-amount {
+    font-size: 1.85rem;
   }
 }
